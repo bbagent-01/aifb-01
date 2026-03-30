@@ -1,17 +1,10 @@
 import { client } from '@/sanity/lib/client';
-import { pageBySlugQuery, allPagesQuery } from '@/sanity/lib/queries';
+import { pageBySlugQuery } from '@/sanity/lib/queries';
 import BlockRenderer from '@/components/BlockRenderer';
 import { notFound } from 'next/navigation';
 
-export const dynamicParams = true;
-export const revalidate = 60; // Re-fetch from Sanity every 60 seconds
-
-export async function generateStaticParams() {
-  const pages = await client.fetch(allPagesQuery);
-  return pages
-    .filter((p) => p.slug?.current)
-    .map((p) => ({ slug: p.slug.current }));
-}
+// Render on demand, cache for 60s
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
