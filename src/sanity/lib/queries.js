@@ -6,13 +6,7 @@ export const pageBySlugQuery = groq`
     slug,
     seo,
     pageBuilder[] {
-      ...,
-      _type == "caseStudyGrid" => {
-        ...,
-        studies[]-> {
-          _id, title, slug, client, metric, description, tags, image
-        }
-      }
+      ...
     }
   }
 `;

@@ -35,7 +35,7 @@ export default function CaseStudyGrid({ studies }) {
   if (!studies?.length) return null;
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {studies.map((study, i) => (
+      {studies.filter(Boolean).map((study, i) => (
         <StudyCard key={study._key || i} study={study} />
       ))}
     </div>
