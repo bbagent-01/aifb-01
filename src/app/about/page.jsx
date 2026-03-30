@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SplitSection from '@/components/SplitSection';
 
 const values = [
   { title: 'Quality Over Quantity', desc: 'Senior talent on every project. We\'d rather do fewer things exceptionally than more things adequately.' },
@@ -59,6 +60,26 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Split: The Model */}
+      <section className="pb-20 md:pb-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <SplitSection
+            label="The Model"
+            heading="Subscription creative that scales with you"
+            text="No contracts, no scope creep, no surprise invoices. Pick a plan, get a dedicated team, and start shipping creative the same week. Scale up for launches, scale down when things are quiet."
+            imageSide="right"
+            imageAlt="How it works"
+          >
+            <Link
+              href="/pricing"
+              className="text-sm font-mono uppercase tracking-widest text-accent hover:text-accent-hover transition-colors"
+            >
+              See Pricing &rarr;
+            </Link>
+          </SplitSection>
         </div>
       </section>
 
