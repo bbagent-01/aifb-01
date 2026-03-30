@@ -1,8 +1,10 @@
 import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Project Name — Tagline',
-  description: 'Your project description.',
+  title: 'Brightbase — Your Fractional Creative Team',
+  description: 'Full-service creative for B2B SaaS. Design, development, video, and copy — one subscription, one team.',
 };
 
 export default function RootLayout({ children }) {
@@ -12,12 +14,14 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fragment+Mono:wght@400&family=Geist:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-surface-1 text-zinc-200 antialiased">
-        {children}
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

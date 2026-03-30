@@ -1,22 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* BB Base Theme — Surface */
-  --color-surface-1: #09090b;
-  --color-surface-2: #0f0f12;
-  --color-surface-3: #16161a;
-  --color-surface-4: #1e1e24;
+  /* Surface — warm cream (b150 inspired) */
+  --color-surface: #f7f5f1;
+  --color-surface-dark: #1f1915;
+  --color-surface-card: #ffffff;
+  --color-surface-muted: #edeae4;
 
-  /* Accents */
-  --color-coral: #e8735e;
-  --color-coral-light: #f09a8a;
-  --color-coral-dark: #c45a47;
-  --color-amber: #d4a23a;
-  --color-amber-light: #e4be6a;
+  /* Text */
+  --color-text-primary: #1f1915;
+  --color-text-secondary: #6b635b;
+  --color-text-muted: #9e958c;
+  --color-text-inverse: #f7f5f1;
+
+  /* Brightbase accents — orange spectrum */
+  --color-accent: #E85D2A;
+  --color-accent-hover: #D44A1A;
+  --color-accent-light: #F5A173;
+  --color-accent-subtle: rgba(232, 93, 42, 0.08);
+
+  /* Borders */
+  --color-border: #e5e0d8;
+  --color-border-light: #f0ece6;
 
   /* Typography */
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Fragment Mono", "JetBrains Mono", monospace;
 }
 
 html {
@@ -25,6 +34,8 @@ html {
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
