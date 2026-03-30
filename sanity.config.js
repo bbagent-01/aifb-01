@@ -8,6 +8,7 @@ import { projectId, dataset } from './src/sanity/lib/env';
 export default defineConfig({
   name: 'brightbase',
   title: 'Brightbase',
+  basePath: '/studio',
   projectId,
   dataset,
   plugins: [structureTool()],
