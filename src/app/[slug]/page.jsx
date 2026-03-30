@@ -3,6 +3,9 @@ import { pageBySlugQuery, allPagesQuery } from '@/sanity/lib/queries';
 import BlockRenderer from '@/components/BlockRenderer';
 import { notFound } from 'next/navigation';
 
+export const dynamicParams = true;
+export const revalidate = 60; // Re-fetch from Sanity every 60 seconds
+
 export async function generateStaticParams() {
   const pages = await client.fetch(allPagesQuery);
   return pages
