@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
-        {isEnabled && <VisualEditing />}
+        <VisualEditing />
       </body>
     </html>
   );
