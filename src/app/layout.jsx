@@ -22,9 +22,9 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Navbar />
+        {!isEnabled && <Navbar />}
         <main>{children}</main>
-        <Footer />
+        {!isEnabled && <Footer />}
         <VisualEditing />
       </body>
     </html>

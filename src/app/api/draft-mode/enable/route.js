@@ -13,7 +13,8 @@ export async function GET(request) {
   const dm = await draftMode();
   dm.enable();
 
-  // Fix SameSite for iframe usage (Presentation Tool embeds the site)
+  // Fix cookie for iframe usage — production needs Secure + SameSite=None
+  const isProduction = process.env.NODE_ENV === 'production';
   const cookieStore = await cookies();
   const cookie = cookieStore.get('__prerender_bypass');
   if (cookie) {
@@ -22,8 +23,8 @@ export async function GET(request) {
       value: cookie.value,
       httpOnly: true,
       path: '/',
-      secure: false,
-      sameSite: 'lax',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
     });
   }
 
