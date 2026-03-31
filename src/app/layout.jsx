@@ -1,13 +1,16 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { VisualEditing } from 'next-sanity/visual-editing';
+import { draftMode } from 'next/headers';
 
 export const metadata = {
   title: 'Brightbase — Your Fractional Creative Team',
   description: 'Full-service creative for B2B SaaS. Design, development, video, and copy — one subscription, one team.',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const { isEnabled } = await draftMode();
   return (
     <html lang="en">
       <head>
@@ -22,6 +25,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
+        {isEnabled && <VisualEditing />}
       </body>
     </html>
   );

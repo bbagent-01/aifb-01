@@ -2,8 +2,10 @@
 
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
+import { presentationTool } from 'sanity/presentation';
 import { schemaTypes } from './src/sanity/schemaTypes';
 import { projectId, dataset } from './src/sanity/lib/env';
+import { resolve } from './src/sanity/lib/resolve';
 
 export default defineConfig({
   name: 'brightbase',
@@ -11,6 +13,16 @@ export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
-  plugins: [structureTool()],
+  plugins: [
+    structureTool(),
+    presentationTool({
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
+      resolve,
+    }),
+  ],
   schema: { types: schemaTypes },
 });
