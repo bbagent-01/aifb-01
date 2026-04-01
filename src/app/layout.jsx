@@ -1,7 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { VisualEditing } from 'next-sanity/visual-editing';
+import DraftModeVisualEditing from '@/components/DraftModeVisualEditing';
 import { draftMode } from 'next/headers';
 
 export const metadata = {
@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
         {!isEnabled && <Navbar />}
         <main>{children}</main>
         {!isEnabled && <Footer />}
-        <VisualEditing />
+        <DraftModeVisualEditing />
       </body>
     </html>
   );
